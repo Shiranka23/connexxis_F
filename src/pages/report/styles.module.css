@@ -1,0 +1,101 @@
+.bgContent h4 {
+    color: #FFF;
+    font-size: 42px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 70px;
+    font-family: 'Open Sans', sans-serif;
+    margin: 28px 86px 20px 0;
+}
+.bgContent p {
+    color: #FFF;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 22px;
+    font-style: normal;
+    margin: 0px 86px 0 0;
+    padding-bottom: 20px;
+    font-weight: 500;
+    line-height: 150%; /* 33px */
+    letter-spacing: -0.242px;
+}
+.bgContent p span {
+    color: #1EDC8C;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%;
+    letter-spacing: -0.242px;
+}
+.bgContent button {
+    width: 251px;
+    height: 51px;
+    border-radius: 16px;
+    color: #008080;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    border: 0;
+    margin-left: 0px;
+    position: relative;
+    top: 11px;
+}
+.area {
+    text-align: center;
+}
+.area h4 {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 58%;
+    font-family: 'Open Sans', sans-serif;
+    color: #03162D;
+    margin: 35px;
+}
+.area p {
+    color: #008080;
+    font-size: 24px;
+    font-weight: 500;
+    font-family: 'Open Sans', sans-serif;
+}
+.reumeImg {
+    width: 100%;
+    object-fit: contain !important;
+}
+.score {
+    background-color: #008080;
+    border-radius: 20px;
+    height: 52px;
+    margin: 0 33px;
+    position: relative;
+    right: 13px;
+}
+.codeBox {
+    width: 1440px;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+.score h4 {
+    color: #fff;
+    margin: 0;
+    font-size: 18px;
+    padding: 12px 18px;
+    font-family: 'Open Sans', sans-serif;
+}
+.semiCircle {
+    background: #fff;
+    text-align: center;
+    height: 466px;
+    padding: 34px;
+    box-shadow: 0px 0px 24px 0px #0000001A;
+    border-radius: 10px;
+    margin: 32px 20px;
+}
+.semiCircle h6 {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0;
+    padding-bottom: 15px;
+    font-family: 'Open Sans', sans-serif;
+    position: relative;
+    bottom: 7px;
+}

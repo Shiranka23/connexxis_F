@@ -1,0 +1,73 @@
+.layout {
+    text-align: center;
+}
+.box {
+padding: 30px 0 0px;
+background: #FFF;
+box-shadow: 0px 4px 43.8px 0px rgba(0, 0, 0, 0.10);
+}
+.layout h3 {
+    color: #03162D;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    text-transform: capitalize;
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+.layout h1 {
+    color: #03162D;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 50px;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 4px;
+}
+.layout p {
+ 
+    color: #384347;
+    font-weight: 400;
+    font-size: 22px;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0 406px;
+}
+.layout p span {
+    color: #008080;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+}
+
+.content p {
+    font-size: 20px;
+    font-weight: 500;
+    font-family: 'Open Sans', sans-serif;
+    color: #03162D;
+    padding-bottom: 20px;
+    text-align: left;
+}
+.content {
+    width: 1063px;
+    max-width: 1440px;
+    margin: 0 auto;
+    text-align: center;
+}
+.uploadResume {
+    width: 1440px;
+    max-width: 1440px;
+    margin: 0 auto;
+    text-align: center;
+}
+.uploadResume img {
+    width: 100%;
+    object-fit: contain;
+}
+.uploadResume h2 {
+    font-size: 40px;
+    font-weight: 600;
+    font-family: 'Open Sans', sans-serif;
+    color: #03162D;
+    margin: 0 265px;
+    line-height: 76px;
+    padding-top: 32px;
+}

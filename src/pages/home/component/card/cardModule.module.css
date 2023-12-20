@@ -1,0 +1,101 @@
+.cardImg img {
+    width: 100%;
+    object-fit: cover;
+    height: 315px;
+    border-radius: 10px;
+  }
+  .galleryIcon {
+    position: relative;
+  }
+  .galleryIcon span {
+    position: absolute;
+    right: 3%;
+    width: 38px;
+    height: 20px;
+    background: #fff;
+    bottom: 13px;
+    border-radius: 5px;
+    font-family: 'Inter';
+    font-weight: 600;
+  }
+  .galleryIcon span svg {
+    position: relative;
+    top: 1px;
+    margin-right: 6px;
+    left: 4px;
+  }
+  .cardBody h5 {
+    font-size: 22px;
+    margin: 0;
+    font-family: "inter";
+    padding: 10px 10px 0;
+    font-weight: 600;
+  }
+  .cardBody h4 {
+    color: #bf5a19;
+    font-size: 22px;
+    margin: 0;
+    font-family: "inter";
+    padding: 0px 10px 0;
+    font-weight: 600;
+  }
+  .cardBody p {
+    font-size: 12px;
+    color: #424141;
+    padding: 0px 0px 10px 10px;
+    font-weight: 500;
+    margin: 0;
+    font-family: "inter";
+  }
+  .cardDetail p {
+    margin: 0;
+    padding: 0 !important;
+    color: #848a93;
+    font-family: "inter";
+    font-size: 14px;
+    font-weight: 400;
+  }
+  .cardDetail {
+    display: flex;
+    align-items: center;
+  
+    padding-left: 13px;
+    padding-bottom: 12px;
+  }
+  .cardDetail img {
+    width: 20px;
+    object-fit: contain;
+    height: 30px;
+    margin-right: 6px;
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+  }
+  .cardDetail p span {
+    color: #212934;
+    font-weight: 400;
+  }
+  .mainCard {
+    box-shadow: 0px 12px 20px 0px #0000001a;
+    border-radius: 14px;
+    position: relative;
+    margin-bottom: 24px;
+  }
+  .heartDiv {
+    position: absolute;
+    right: 9px;
+    top: 3%;
+    display: flex;
+    flex-flow: column;
+  }
+  .heartDiv svg {
+    margin-bottom: 6px !important;
+  }
+  .edit1 {
+    position: relative;
+  }
+  .edit1 svg {
+    position: absolute;
+    bottom: 168px;
+    left: 10px;
+    cursor: pointer;
+  }

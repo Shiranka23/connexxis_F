@@ -1,0 +1,31 @@
+.uploadSection h4 {
+    font-size: 24px;
+    margin: 0;
+    font-family: 'Open Sans';
+    font-weight: 500;
+    position: relative;
+    bottom: 10px;
+}
+.uploadSection p {
+    font-size: 20px !important;
+    color: #717171 !important;
+    font-weight: 400 !important;
+    text-align: center !important;
+    font-family: 'Open Sans' !important;
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
+}
+.uploadBtn {
+    width: 680px;
+    background: #008080;
+    padding: 0;
+    height: 60px;
+    font-size: 24px;
+    color: #fff;
+    font-family: 'Open Sans';
+    font-weight: 700;
+    border-radius: 16px;
+    border: 0;
+    margin: 22px;
+}

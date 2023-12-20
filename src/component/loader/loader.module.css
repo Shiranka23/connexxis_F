@@ -1,0 +1,20 @@
+.stripped {
+    display: flex;
+    align-items: center;
+}
+.stripped p {
+    color: #03162D;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 0 !important;
+    text-align: left;
+    margin-top: 0 !important;
+    margin-left: 0px !important;
+}
+.stripped p span {
+    color: #008080 !important;
+    font-weight: 400 !important;
+}
+.stripped img {
+    margin-right: 20px;
+}

@@ -1,0 +1,58 @@
+.tabHeading {
+    display: flex;
+    align-items: center;
+}
+.searchBox h6 {
+color: #393939;
+font-size: 24px;
+font-family: 'inter';
+font-weight: 700;
+margin: 0;
+padding-top: 14px;
+}
+.searchBox ul {
+    padding: 0;
+}
+.searchBox li {
+    list-style: none;
+    display: flex;
+    position: relative;
+    align-items: center;
+    /* border-top: 1px solid #CDCDCD; */
+    border-bottom: 1px solid #CDCDCD;
+    padding: 11px;
+    padding-left: 0 !important;
+    width: 78%;
+    font-size: 20px;
+    font-family: 'Inter';
+    color: #3A3A3A;
+    font-weight: 500;
+}
+.searchBox li span {
+    position: relative;
+    top: 3px;
+    margin-right: 12px;
+}
+.searchBox li span:nth-child(2) {
+    margin-left: 12px;
+    position: absolute;
+    right: 0;
+    top: 12px;
+    cursor: pointer;
+}
+.counter {
+    margin-left: 24px;
+    background: #BF5A19;
+    width: 24px;
+    text-align: center;
+    border-radius: 100%;
+    font-family: 'inter';
+    color: #fff;
+    font-weight: 500;
+    padding: 1px 0px 1px 1px;
+}
+.tabHeading p {
+    font-size: 16px;
+    font-family: 'inter';
+    margin: 0;
+}
