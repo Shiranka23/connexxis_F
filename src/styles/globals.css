@@ -16,7 +16,7 @@ body {
 .listedAnalysis {
   text-align: start !important;
   position: relative;
-  bottom: 100px;
+  bottom: 146px;
   padding-left: 36px;
 }
 .listedAnalysis ul {
@@ -51,21 +51,21 @@ body {
   font-weight: 700;
   font-family: 'Open Sans', sans-serif;
   position: relative;
-  bottom: 118px;
+  bottom: 164px;
 }
 .percentText {
   font-size: 32px;
   font-weight: 500;
   font-family: 'Open Sans', sans-serif;
-  position: absolute;
-  top: 100px;
-  left: 248px;
+  position: relative;
+  top: -155px;
+  left: 4px;
   margin: 0 !important;
 }
 .result {
   margin: 0;
   position: relative;
-  bottom: 122px;
+  bottom: 162px;
   font-size: 21px;
   font-family: 'Open Sans';
   color: #008080;

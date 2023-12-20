@@ -203,7 +203,7 @@
     font-style: italic;
 }
 
-@media screen and (max-width:1300px) and (min-width:1000px) {
+@media screen and (max-width:1366px) and (min-width:1000px) {
     .codeBox {
         width: 1260px !important;
         max-width: 1218px !important;
