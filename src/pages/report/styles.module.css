@@ -7,6 +7,10 @@
     font-family: 'Open Sans', sans-serif;
     margin: 28px 86px 20px 0;
 }
+.imgUpload {
+    width: 100%;
+    object-fit: contain;
+}
 .bgContent p {
     color: #FFF;
     font-family: 'Open Sans', sans-serif;
@@ -15,9 +19,11 @@
     margin: 0px 86px 0 0;
     padding-bottom: 20px;
     font-weight: 500;
-    line-height: 150%; /* 33px */
+    line-height: 150%;
+    /* 33px */
     letter-spacing: -0.242px;
 }
+
 .bgContent p span {
     color: #1EDC8C;
     font-family: 'Open Sans', sans-serif;
@@ -27,6 +33,7 @@
     line-height: 150%;
     letter-spacing: -0.242px;
 }
+
 .bgContent button {
     width: 251px;
     height: 51px;
@@ -40,9 +47,11 @@
     position: relative;
     top: 11px;
 }
+
 .area {
     text-align: center;
 }
+
 .area h4 {
     font-size: 48px;
     font-weight: 700;
@@ -51,16 +60,19 @@
     color: #03162D;
     margin: 35px;
 }
+
 .area p {
     color: #008080;
     font-size: 24px;
     font-weight: 500;
     font-family: 'Open Sans', sans-serif;
 }
+
 .reumeImg {
     width: 100%;
     object-fit: contain !important;
 }
+
 .score {
     background-color: #008080;
     border-radius: 20px;
@@ -69,11 +81,13 @@
     position: relative;
     right: 13px;
 }
+
 .codeBox {
     width: 1368px;
     max-width: 1368px;
     margin: 0 auto;
 }
+
 .score h4 {
     color: #fff;
     margin: 0;
@@ -81,6 +95,7 @@
     padding: 12px 18px;
     font-family: 'Open Sans', sans-serif;
 }
+
 .semiCircle {
     background: #fff;
     text-align: center;
@@ -90,6 +105,7 @@
     border-radius: 10px;
     margin: 32px 20px;
 }
+
 .semiCircle h6 {
     font-size: 15px;
     font-weight: 700;
@@ -99,6 +115,7 @@
     position: relative;
     bottom: 7px;
 }
+
 .analysisCard {
     border-radius: 20px;
     background: #FFF;
@@ -107,9 +124,11 @@
     margin: 20px;
     width: 90%;
 }
+
 .cardText {
     display: flex;
 }
+
 .cardText h5 {
     color: #B00202;
     font-size: 18px;
@@ -117,6 +136,7 @@
     font-family: 'Open Sans', sans-serif;
     margin: 0;
 }
+
 .analysisCard h4 {
     font-size: 18px;
     padding-bottom: 14px;
@@ -124,6 +144,7 @@
     font-weight: 600;
     font-family: 'Open Sans', sans-serif;
 }
+
 .analysisCard img {
     margin-right: 16px;
 }
@@ -134,24 +155,29 @@
     font-weight: 500;
     margin: 8px 0;
 }
+
 .analysisNumber {
     display: flex;
     align-items: center;
 }
+
 .analysisNumber p {
     margin-top: 0 !important;
     margin-bottom: 0 !important;
     margin-right: 20px !important;
 }
+
 .correction p {
     margin-bottom: 0 !important;
 }
+
 .divider img {
     margin-right: 0 !important;
     width: 100%;
     object-fit: contain;
-    padding: 14px 0 ;
+    padding: 14px 0;
 }
+
 .trueCorrection h5 {
     color: #0C9400;
     font-size: 18px;
@@ -159,17 +185,40 @@
     font-family: 'Open Sans', sans-serif;
     margin: 0;
 }
+
 .trueCorrection p {
     margin: 2px 0 !important;
 }
+
 .tips p {
     font-size: 16px;
     font-weight: 400;
     font-family: 'Open Sans', sans-serif;
     padding: 7px 0 0;
 }
+
 .tips span {
     color: #008080;
     font-size: 13px;
     font-style: italic;
+}
+
+@media screen and (max-width:1300px) and (min-width:1000px) {
+    .codeBox {
+        width: 1260px !important;
+        max-width: 1218px !important;
+        margin: 0 auto !important;
+    }
+
+    .bgContent h4 {
+        color: #FFF;
+        font-size: 35px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 59px;
+        font-family: 'Open Sans', sans-serif;
+        margin: 28px 42px 20px 0;
+    }
+
+
 }

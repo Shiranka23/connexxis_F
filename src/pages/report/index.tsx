@@ -115,12 +115,12 @@ export default function Report() {
                             <Col className={`${styles.analysisCard}`}>
                                 <h4>Problem 1</h4>
                                 <Col className={`${styles.cardText}`}>
-                                    <Image src={IMAGES.Left} alt="" />
+                                    <Image src={IMAGES.Left} alt=""  />
                                     <Col className={`${styles.correction}`}>
                                         <h5>Incorrect Way</h5>
                                         <p>Problem #2:  Missing Company Description:  Your resume lacks 1-3 sentences describing what your company does.
                                         </p>
-                                        <Image src={IMAGES.Dummy} alt="" />
+                                        <Image src={IMAGES.Dummy} alt="" className={`${styles.imgUpload}`} />
 
                                     </Col>
                                 </Col>
@@ -131,7 +131,7 @@ export default function Report() {
                                     <Image src={IMAGES.Correct} alt="" />
                                     <Col className={`${styles.trueCorrection}`}>
                                         <h5>Correct Way</h5>
-                                        <Image src={IMAGES.Second} alt="" />
+                                        <Image src={IMAGES.Second} alt="" className={`${styles.imgUpload}`} />
                                         <Col className={`${styles.tips}`}>
                                             <span>Tip: Do not assume that a hiring manager will know the company you work for. Not providing this information may eliminate you since the hiring manager may not have time to Google your company. Here is an Example: Illumina is a well-known company in the field of genomics and biotechnology. They specialize in developing and manufacturing equipment and technologies for genetic analysis, particularly DNA sequencing.</span>
                                            
