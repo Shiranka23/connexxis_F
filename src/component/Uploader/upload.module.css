@@ -1,7 +1,7 @@
 .uploadSection h4 {
     font-size: 24px;
     margin: 0;
-    font-family: 'Open Sans';
+    font-family: 'Open Sans', sans-serif;
     font-weight: 500;
     position: relative;
     bottom: 10px;
@@ -11,7 +11,7 @@
     color: #717171 !important;
     font-weight: 400 !important;
     text-align: center !important;
-    font-family: 'Open Sans' !important;
+    font-family: 'Open Sans', sans-serif !important;
     padding-bottom: 0 !important;
     margin-bottom: 0 !important;
     margin-top: 0 !important;
@@ -23,7 +23,7 @@
     height: 60px;
     font-size: 24px;
     color: #fff;
-    font-family: 'Open Sans';
+    font-family: 'Open Sans', sans-serif;
     font-weight: 700;
     border-radius: 16px;
     border: 0;
