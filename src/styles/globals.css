@@ -4,6 +4,7 @@ body {
   margin: 0;
   font-family: 'Open Sans', sans-serif;
   background-color: #edf8ff;
+  overflow-x: hidden;
 }
 .CircularProgressbar {
   width: 190px !important;

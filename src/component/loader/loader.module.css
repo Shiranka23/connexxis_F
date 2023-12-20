@@ -2,6 +2,10 @@
     display: flex;
     align-items: center;
 }
+.strippedText {
+    height: 82px;
+    padding-bottom: 20px;
+}
 .stripped p {
     color: #03162D;
     font-size: 20px;

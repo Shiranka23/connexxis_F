@@ -18,7 +18,7 @@ const suggestions = [
     { id: 5, category: 'Dates of Employment are not Documented Properly' },
     { id: 6, category: 'Education Missing Graduating Date' },
     // Add more items as needed
-  ];
+];
 
 export default function Report() {
     const [progress, setProgress] = useState(0);
@@ -76,8 +76,71 @@ export default function Report() {
                             <h4>Steps to Increase your score</h4>
                         </Col>
                         <Col>
-                            <Image src={IMAGES.Left} alt="" />
-                            <Image src={IMAGES.Right} alt="" />
+                            <Col className={`${styles.analysisCard}`}>
+                                <h4>Demographics</h4>
+                                <Col className={`${styles.cardText}`}>
+                                    <Image src={IMAGES.Left} alt="" />
+                                    <Col className={`${styles.correction}`}>
+                                        <h5>Incorrect Way</h5>
+                                        <p>Problem #1 Incomplete Demographics: Hiring managers like to know where you live, so include your You dont have to include a street address.
+                                            You should also include a phone number and email address
+                                        </p>
+                                        <p>Charles Bishop</p>
+                                        <Col className={`${styles.analysisNumber}`}>
+                                            <p>T- 864-979-8731</p>
+                                            <p> missing city and state</p>
+                                        </Col>
+                                        <p style={{ marginTop: "0" }}>tony@connexissearch.com</p>
+                                    </Col>
+                                </Col>
+                                <Col className={`${styles.divider}`}>
+                                    <Image src={IMAGES.Right} alt="" />
+                                </Col>
+                                <Col className={`${styles.cardText}`}>
+                                    <Image src={IMAGES.Correct} alt="" />
+                                    <Col className={`${styles.trueCorrection}`}>
+                                        <h5>Correct Way</h5>
+
+                                        <p>Charles Bishop</p>
+                                        <p>Greenville, SC</p>
+                                        <p>T- 864-979-8731</p>
+                                        <p>tony@connexissearch.com</p>
+                                        <Col className={`${styles.tips}`}>
+                                            <p>Tip—This will be displayed to the candidate.  I want the ability to modify the tips by changing the wording as needed.  Also, the ability to make bold, italicize, and change font and font size.</p>
+                                            <span>Tip: Hiring Managers want you to include the city and state in your address. This is important for sales positions since they want to know that you are in the territory.</span>
+                                        </Col>
+                                    </Col>
+                                </Col>
+                            </Col>
+                            <Col className={`${styles.analysisCard}`}>
+                                <h4>Problem 1</h4>
+                                <Col className={`${styles.cardText}`}>
+                                    <Image src={IMAGES.Left} alt="" />
+                                    <Col className={`${styles.correction}`}>
+                                        <h5>Incorrect Way</h5>
+                                        <p>Problem #2:  Missing Company Description:  Your resume lacks 1-3 sentences describing what your company does.
+                                        </p>
+                                        <Image src={IMAGES.Dummy} alt="" />
+
+                                    </Col>
+                                </Col>
+                                <Col className={`${styles.divider}`}>
+                                    <Image src={IMAGES.Right} alt="" />
+                                </Col>
+                                <Col className={`${styles.cardText}`}>
+                                    <Image src={IMAGES.Correct} alt="" />
+                                    <Col className={`${styles.trueCorrection}`}>
+                                        <h5>Correct Way</h5>
+                                        <Image src={IMAGES.Second} alt="" />
+                                        <Col className={`${styles.tips}`}>
+                                            <span>Tip: Do not assume that a hiring manager will know the company you work for. Not providing this information may eliminate you since the hiring manager may not have time to Google your company. Here is an Example: Illumina is a well-known company in the field of genomics and biotechnology. They specialize in developing and manufacturing equipment and technologies for genetic analysis, particularly DNA sequencing.</span>
+                                           
+                                        </Col>
+                                    </Col>
+                                </Col>
+                            </Col>
+                            {/* <Image src={IMAGES.Left} alt="" />
+                            <Image src={IMAGES.Right} alt="" /> */}
                         </Col>
                     </Col>
                     <Col md={12}>

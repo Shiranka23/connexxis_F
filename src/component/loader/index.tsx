@@ -50,7 +50,7 @@ export default function LoaderAnalysis() {
                 <h6>Analysing</h6>
                 <Col className={`${styles.stripped}`}>
                     <Image src={IMAGES.Bulb} alt="" />
-                    <Col>
+                    <Col className={`${styles.strippedText}`}>
                         <p>We are checking your resume for the following:</p>
                         <p>{currentDescription.title}: <span>{currentDescription.content}</span></p>
                     </Col>
