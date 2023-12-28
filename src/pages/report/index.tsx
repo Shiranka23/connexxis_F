@@ -8,31 +8,61 @@ import PdfViewer from '@/component/Pdfview'
 import { IMAGES } from '@/assest/Image'
 import Image from 'next/image'
 import Semicircle from '@/component/Semicirclebar'
+import { useRouter } from 'next/router'
+import { IM } from 'country-flag-icons/react/1x1'
 
 
 const suggestions = [
-    { id: 1, category: 'Demographics' },
-    { id: 2, category: 'Company Description Missing' },
-    { id: 3, category: 'Position Description Missing' },
-    { id: 4, category: 'Achievements Not Documented Properly' },
-    { id: 5, category: 'Dates of Employment are not Documented Properly' },
-    { id: 6, category: 'Education Missing Graduating Date' },
-    // Add more items as needed
+    { id: "demography", category: 'Demographics' },
+    { id: "company_description", category: 'Company Description ' },
+    { id: "job_description", category: 'Position Description ' },
+    { id: "achievements", category: 'Achievements Documented Properly' },
+    { id: "dates", category: 'Dates of Employment are Documented Properly' },
+    { id: "education", category: 'Education Graduating Date' },
 ];
+interface IData {
+    demography: boolean;
+    company_description: boolean;
+    job_description: boolean;
+    achievements: boolean;
+    dates: boolean;
+    education: boolean;
+    score: number;
+}
 
 export default function Report() {
     const [progress, setProgress] = useState(0);
+    const [data, setData] = useState<IData>({
+        demography: false,
+        company_description: false,
+        job_description: false,
+        achievements: false,
+        dates: false,
+        education: false,
+        score: 0,
+    });
+    const router = useRouter();
 
     useEffect(() => {
-        // Simulate progress incrementing over time
-        const interval = setInterval(() => {
-            setProgress((prevProgress) => (prevProgress < 100 ? prevProgress + 10 : 0));
-        }, 1000);
+        const dataFromLocalStorage = localStorage.getItem('score');
+        const dataFromLocalStorage1 = localStorage.getItem('stringfy_data');
 
-        return () => clearInterval(interval);
+        if (dataFromLocalStorage && dataFromLocalStorage1) {
+            const parsedData = JSON.parse(dataFromLocalStorage);
+            const parsedData1 = JSON.parse(dataFromLocalStorage1);
+
+            setData({
+                ...data, demography: parsedData1['demography'],
+                education: parsedData1['education'],
+                job_description: parsedData1['job_description'],
+                dates: parsedData1['dates'],
+                achievements: parsedData['achievements'],
+                company_description: parsedData['company_description'],
+                score: parsedData
+            });
+        }
     }, []);
-    const percentage: number = 75;
-    // const pdfUrl = 'https://mozilla.github.io/pdf.js/web/compressed.tracemonkey-pldi-09.pdf';
+
     return (
         <>
             <Layout>
@@ -42,6 +72,7 @@ export default function Report() {
                             <Col className={`${styles.bgContent}`}>
                                 <h4>We are recommending changes based on 22 years of experience working with hiring managers.</h4>
                                 <p>Your overall score is above <span>66.67%.</span>  It means a <span>Good Resume</span> </p>
+
                                 <p>But there is some room for improvement.
                                     We are providing suggestions on how to fix your resume, or we can make the changes for you for a small fee.</p>
                                 <FilledButtonComponent>Help Me Fix My Resume</FilledButtonComponent>
@@ -50,13 +81,13 @@ export default function Report() {
                         <Col md={10}>
                             <Col className={`${styles.semiCircle}`}>
                                 <h6>We want to help you make a great impression</h6>
-                                <Semicircle />
+                                <Semicircle percentage={data.score} />
                                 <Col className='listedAnalysis'>
                                     <h3>Review our suggestions to see what you can fix.</h3>
                                     <ul>
-                                        {suggestions.map((item) => (
+                                        {suggestions.map((item, index) => (
                                             <li key={item.id}>
-                                                <Image src={IMAGES.Info} alt="" />
+                                                <Image src={data[item.id]?IMAGES.Check:IMAGES.Info} className='' alt="" />
                                                 {item.category}
                                             </li>
                                         ))}
@@ -106,7 +137,7 @@ export default function Report() {
                                         <p>T- 864-979-8731</p>
                                         <p>tony@connexissearch.com</p>
                                         <Col className={`${styles.tips}`}>
-                                            <p>Tip—This will be displayed to the candidate.  I want the ability to modify the tips by changing the wording as needed.  Also, the ability to make bold, italicize, and change font and font size.</p>
+                                            <p>Tip—This will be displayed to the candidate. I want the ability to modify the tips by changing the wording as needed. Also, the ability to make bold, italicize, and change font and font size.</p>
                                             <span>Tip: Hiring Managers want you to include the city and state in your address. This is important for sales positions since they want to know that you are in the territory.</span>
                                         </Col>
                                     </Col>
@@ -115,7 +146,7 @@ export default function Report() {
                             <Col className={`${styles.analysisCard}`}>
                                 <h4>Problem 1</h4>
                                 <Col className={`${styles.cardText}`}>
-                                    <Image src={IMAGES.Left} alt=""  />
+                                    <Image src={IMAGES.Left} alt="" />
                                     <Col className={`${styles.correction}`}>
                                         <h5>Incorrect Way</h5>
                                         <p>Problem #2:  Missing Company Description:  Your resume lacks 1-3 sentences describing what your company does.
@@ -134,7 +165,7 @@ export default function Report() {
                                         <Image src={IMAGES.Second} alt="" className={`${styles.imgUpload}`} />
                                         <Col className={`${styles.tips}`}>
                                             <span>Tip: Do not assume that a hiring manager will know the company you work for. Not providing this information may eliminate you since the hiring manager may not have time to Google your company. Here is an Example: Illumina is a well-known company in the field of genomics and biotechnology. They specialize in developing and manufacturing equipment and technologies for genetic analysis, particularly DNA sequencing.</span>
-                                           
+
                                         </Col>
                                     </Col>
                                 </Col>

@@ -2,8 +2,9 @@ import React from 'react';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
-export default function Semicircle() {
-    const percentage = 50;
+export default function Semicircle({percentage}:{
+    percentage:number
+}) {
     return (
         <>
             <CircularProgressbar
@@ -19,7 +20,6 @@ export default function Semicircle() {
             />
             <p className="percentText">
                 {`${percentage}%`}
-
             </p>
             <h5 className="result">Good</h5>
             <span className='strength'>RESUME STRENGTH</span>

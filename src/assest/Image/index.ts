@@ -10,6 +10,7 @@ import Info from "./info.png"
 import Correct from "./correct.png"
 import Dummy from "./dummy.png"
 import Second from "./second.png"
+import Check from "./check.png"
 
 export const IMAGES = {
     Logo,
@@ -23,5 +24,6 @@ export const IMAGES = {
     Section,
     Resume,
     Left,
-    Right
+    Right,
+    Check,
 }
