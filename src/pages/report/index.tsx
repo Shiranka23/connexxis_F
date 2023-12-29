@@ -64,7 +64,6 @@ export default function Report() {
     }, []);
 
     return (
-        <>
             <Layout>
                 <Col className="bg_img">
                     <Row className={`${styles.codeBox}`}>
@@ -180,6 +179,6 @@ export default function Report() {
                     </Col>
                 </Row>
             </Layout>
-        </>
+        
     )
 }

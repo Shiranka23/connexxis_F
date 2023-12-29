@@ -23,7 +23,7 @@ const Uploader: React.FC<UploaderProps> = ({ onUpload, loading }) => {
     const dispatch = useAppDispatch()
     
     const customRequest = useCallback(
-        async ({onError, file, onProgress }: UploadChangeParam<RcFile>) => {
+        async ({ file}: UploadChangeParam<RcFile>) => {
             try {
                 const formData = new FormData();
                 formData.append('file', file);
@@ -36,13 +36,9 @@ const Uploader: React.FC<UploaderProps> = ({ onUpload, loading }) => {
                         'Content-Type': 'multipart/form-data',
                     },
                     onUploadProgress: (progressEvent) => {
-                        console.log({progressEvent});
-                        
-                        const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
-                        console.log({percentCompleted});
-                        
+                        const totalProgress:number=progressEvent.total!==undefined?progressEvent.total:0;
+                        const percentCompleted = Math.round((progressEvent.loaded * 100) /totalProgress );
                         onUpload();
-                        onProgress({ percent: percentCompleted });
                     },
                 });
               
@@ -54,7 +50,7 @@ const Uploader: React.FC<UploaderProps> = ({ onUpload, loading }) => {
                     setTimeout(() => {
                         localStorage.clear();
                         const score = (Math.round(data['context']['score']))
-                        localStorage.setItem('score', score);
+                        localStorage.setItem('score', `${score}`);
                         localStorage.setItem('stringfy_data', string_data);
                         router.push('/report')
                     }, 1500);
@@ -64,7 +60,6 @@ const Uploader: React.FC<UploaderProps> = ({ onUpload, loading }) => {
 
             } catch (error) {
                 console.error('File upload error:', error);
-                onError(error);
             }
         },
         []
