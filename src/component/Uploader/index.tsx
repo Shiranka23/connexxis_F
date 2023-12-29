@@ -8,51 +8,53 @@ import { IMAGES } from '@/assest/Image';
 import { useRouter } from 'next/router';
 import React, { useCallback, useState } from 'react';
 import LoaderAnalysis from '../loader';
-import { useDispatch } from 'react-redux';
-import { setUploadProgress } from '../../redux/actions';
-
+import { useAppSelector, useAppDispatch } from '../../redux/hooks'
+import { incrementByPercentage } from '../../redux/reducer'
 interface UploaderProps {
-    onUpload:()=>void;
+    onUpload: () => void;
     loading: boolean;
 }
 
 const Uploader: React.FC<UploaderProps> = ({ onUpload, loading }) => {
     const router = useRouter();
-    const dispatch=useDispatch();
-    const [uploadProgress, setUploadProgress] = useState<number>(0)
-
+    // redux
+    const dispatch = useAppDispatch()
+    
     const customRequest = useCallback(
         async ({ onSuccess, onError, file, onProgress }: UploadChangeParam<RcFile>) => {
             try {
                 const formData = new FormData();
                 formData.append('file', file);
 
-                const BaseUrl:string|undefined = process.env.NEXT_PUBLIC_BASE_DEV_URL;
-                const apiUrl:string|undefined=BaseUrl+'file/upload/v1/'
-                
+                const BaseUrl: string | undefined = process.env.NEXT_PUBLIC_BASE_DEV_URL;
+                const apiUrl: string | undefined = BaseUrl + 'file/upload/v1/'
+
                 const response: AxiosResponse = await axios.post(apiUrl, formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data',
                     },
                     onUploadProgress: (progressEvent) => {
                         const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
-                        // dispatch(setUploadProgress(percentCompleted));
+                        // The `state` arg is correctly typed as `RootState` already
+                         dispatch(incrementByPercentage(percentCompleted))
                         onProgress({ percent: percentCompleted });
+                        const count = useAppSelector(state => state.value)
+                        console.log(count)
                     },
                 });
 
                 onSuccess(response.data, file);
                 const data = response.data;
-                const string_data=JSON.stringify(data['context']['checked_data'])
+                const string_data = JSON.stringify(data['context']['checked_data'])
 
-                if (data){
+                if (data) {
                     localStorage.clear();
-                    const score=(Math.round(data['context']['score']))
+                    const score = (Math.round(data['context']['score']))
                     localStorage.setItem('score', score);
                     localStorage.setItem('stringfy_data', string_data);
                     router.push('/report')
                 }
-                else{
+                else {
                     router.push('/report')
                 }
 
@@ -75,25 +77,25 @@ const Uploader: React.FC<UploaderProps> = ({ onUpload, loading }) => {
     };
 
     return (
-    <>
-        <Upload
-            name="file"
-            headers={{
-                authorization: 'authorization-text',
-            }}
-            customRequest={customRequest}
-            onChange={handleUploadChange}
-            className="files"
-        >
-            <Col className={`${styles.uploadSection}`}>
-                <Image src={IMAGES.Upload} alt="" />
-                <h4>Drag and drop a file here</h4>
-                <p>File size should not exceed more than 2mb</p>
-            </Col>
-            <FilledButtonComponent className={`${styles.uploadBtn}`} onClick={() => onUpload(uploadProgress)}>
-                Upload Your Resume
-            </FilledButtonComponent>
-        </Upload>
+        <>
+            <Upload
+                name="file"
+                headers={{
+                    authorization: 'authorization-text',
+                }}
+                customRequest={customRequest}
+                onChange={handleUploadChange}
+                className="files"
+            >
+                <Col className={`${styles.uploadSection}`}>
+                    <Image src={IMAGES.Upload} alt="" />
+                    <h4>Drag and drop a file here</h4>
+                    <p>File size should not exceed more than 2mb</p>
+                </Col>
+                <FilledButtonComponent className={`${styles.uploadBtn}`} onClick={() => onUpload(uploadProgress)}>
+                    Upload Your Resume
+                </FilledButtonComponent>
+            </Upload>
         </>
     );
 };

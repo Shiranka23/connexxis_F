@@ -28,10 +28,9 @@ const descriptions = [
     // Add more descriptions as needed
 ];
 
-export default function LoaderAnalysis({ uploadProgress }: { uploadProgress: number }){
+export default function LoaderAnalysis(){
     const [currentDescriptionIndex, setCurrentDescriptionIndex] = useState(0);
-    
-    console.log(uploadProgress);
+
     useEffect(() => {
         const intervalId = setInterval(() => {
             setCurrentDescriptionIndex((prevIndex) => (prevIndex + 1) % descriptions.length);
@@ -46,7 +45,7 @@ export default function LoaderAnalysis({ uploadProgress }: { uploadProgress: num
             <Col className="striped-progress-bar">
                 <h5>Analysing Your Resume / CV</h5>
                 <p>Please wait..... your resume report is going to generate</p>
-                <Progress percent={uploadProgress} />
+                <Progress percent={10} />
                 <h6>Analysing</h6>
                 <Col className={`${styles.stripped}`}>
                     <Image src={IMAGES.Bulb} alt="" />
