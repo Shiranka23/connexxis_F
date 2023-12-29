@@ -56,7 +56,6 @@ const Uploader: React.FC<UploaderProps> = ({ onUpload, loading }) => {
                     }, 1500);
                   
                 }
-             
 
             } catch (error) {
                 console.error('File upload error:', error);

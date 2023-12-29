@@ -42,26 +42,30 @@ export default function Report() {
         score: 0,
     });
     const router = useRouter();
-
     useEffect(() => {
         const dataFromLocalStorage = localStorage.getItem('score');
         const dataFromLocalStorage1 = localStorage.getItem('stringfy_data');
-
+    
+        const parseLocalStorageData = (data: string | null) => {
+          return data ? JSON.parse(data) : null;
+        };
+    
         if (dataFromLocalStorage && dataFromLocalStorage1) {
-            const parsedData = JSON.parse(dataFromLocalStorage);
-            const parsedData1 = JSON.parse(dataFromLocalStorage1);
-
-            setData({
-                ...data, demography: parsedData1['demography'],
-                education: parsedData1['education'],
-                job_description: parsedData1['job_description'],
-                dates: parsedData1['dates'],
-                achievements: parsedData['achievements'],
-                company_description: parsedData['company_description'],
-                score: parsedData
-            });
+          const parsedData = parseLocalStorageData(dataFromLocalStorage);
+          const parsedData1 = parseLocalStorageData(dataFromLocalStorage1);
+    
+          setData({
+            ...data,
+            demography: parsedData1?.demography || false,
+            education: parsedData1?.education || false,
+            job_description: parsedData1?.job_description || false,
+            dates: parsedData1?.dates || false,
+            achievements: parsedData?.achievements || false,
+            company_description: parsedData?.company_description || false,
+            score: parsedData?.score || 0,
+          });
         }
-    }, []);
+      }, []);
 
     return (
             <Layout>
