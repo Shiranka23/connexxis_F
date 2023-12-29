@@ -6,10 +6,11 @@ import FilledButtonComponent from '../Button';
 import { UploadChangeParam, UploadFile, RcFile } from 'antd/lib/upload';
 import { IMAGES } from '@/assest/Image';
 import { useRouter } from 'next/router';
-import React, { useCallback, useState } from 'react';
-import LoaderAnalysis from '../loader';
-import { useAppSelector, useAppDispatch } from '../../redux/hooks'
+import React, { useCallback } from 'react';
+import {useAppDispatch } from '../../redux/hooks'
 import { incrementByPercentage } from '../../redux/reducer'
+
+
 interface UploaderProps {
     onUpload: () => void;
     loading: boolean;
@@ -17,11 +18,12 @@ interface UploaderProps {
 
 const Uploader: React.FC<UploaderProps> = ({ onUpload, loading }) => {
     const router = useRouter();
+    
     // redux
     const dispatch = useAppDispatch()
     
     const customRequest = useCallback(
-        async ({ onSuccess, onError, file, onProgress }: UploadChangeParam<RcFile>) => {
+        async ({onError, file, onProgress }: UploadChangeParam<RcFile>) => {
             try {
                 const formData = new FormData();
                 formData.append('file', file);
@@ -34,29 +36,31 @@ const Uploader: React.FC<UploaderProps> = ({ onUpload, loading }) => {
                         'Content-Type': 'multipart/form-data',
                     },
                     onUploadProgress: (progressEvent) => {
+                        console.log({progressEvent});
+                        
                         const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
-                        // The `state` arg is correctly typed as `RootState` already
-                         dispatch(incrementByPercentage(percentCompleted))
+                        console.log({percentCompleted});
+                        
+                        onUpload();
                         onProgress({ percent: percentCompleted });
-                        const count = useAppSelector(state => state.value)
-                        console.log(count)
                     },
                 });
-
-                onSuccess(response.data, file);
+              
                 const data = response.data;
                 const string_data = JSON.stringify(data['context']['checked_data'])
 
                 if (data) {
-                    localStorage.clear();
-                    const score = (Math.round(data['context']['score']))
-                    localStorage.setItem('score', score);
-                    localStorage.setItem('stringfy_data', string_data);
-                    router.push('/report')
+                    dispatch(incrementByPercentage(100))
+                    setTimeout(() => {
+                        localStorage.clear();
+                        const score = (Math.round(data['context']['score']))
+                        localStorage.setItem('score', score);
+                        localStorage.setItem('stringfy_data', string_data);
+                        router.push('/report')
+                    }, 1500);
+                  
                 }
-                else {
-                    router.push('/report')
-                }
+             
 
             } catch (error) {
                 console.error('File upload error:', error);
@@ -77,9 +81,7 @@ const Uploader: React.FC<UploaderProps> = ({ onUpload, loading }) => {
     };
 
     return (
-        <>
-            <Upload
-                name="file"
+        <Upload name="file"
                 headers={{
                     authorization: 'authorization-text',
                 }}
@@ -92,11 +94,11 @@ const Uploader: React.FC<UploaderProps> = ({ onUpload, loading }) => {
                     <h4>Drag and drop a file here</h4>
                     <p>File size should not exceed more than 2mb</p>
                 </Col>
-                <FilledButtonComponent className={`${styles.uploadBtn}`} onClick={() => onUpload(uploadProgress)}>
+                <FilledButtonComponent className={`${styles.uploadBtn}`} customRequest={customRequest}
+                onChange={handleUploadChange}>
                     Upload Your Resume
                 </FilledButtonComponent>
             </Upload>
-        </>
     );
 };
 

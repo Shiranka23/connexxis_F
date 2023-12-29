@@ -3,6 +3,8 @@ import { Col, Progress } from 'antd'
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import styles from "./loader.module.css"
+import { useAppSelector } from '@/redux/hooks'
+
 
 const descriptions = [
     {
@@ -25,36 +27,40 @@ const descriptions = [
         title: 'Education Details:',
         content: ' "Include your graduation date. It helps hiring managers gauge your experience level and avoids ambiguity about your educational qualifications."'
     },
-    // Add more descriptions as needed
 ];
 
-export default function LoaderAnalysis(){
+
+export default function LoaderAnalysis() {
+
+    // redux
     const [currentDescriptionIndex, setCurrentDescriptionIndex] = useState(0);
+
+
+    const progressData = useAppSelector(state => state.value)
+
 
     useEffect(() => {
         const intervalId = setInterval(() => {
             setCurrentDescriptionIndex((prevIndex) => (prevIndex + 1) % descriptions.length);
+          
         }, 2000);
-
         return () => clearInterval(intervalId); // Cleanup on component unmount
 
     }, []); // Empty dependency array ensures the effect runs once on mount
     const currentDescription = descriptions[currentDescriptionIndex];
     return (
-        <>
-            <Col className="striped-progress-bar">
-                <h5>Analysing Your Resume / CV</h5>
-                <p>Please wait..... your resume report is going to generate</p>
-                <Progress percent={10} />
-                <h6>Analysing</h6>
-                <Col className={`${styles.stripped}`}>
-                    <Image src={IMAGES.Bulb} alt="" />
-                    <Col className={`${styles.strippedText}`}>
-                        <p>We are checking your resume for the following:</p>
-                        <p>{currentDescription.title}: <span>{currentDescription.content}</span></p>
-                    </Col>
+        <Col className="striped-progress-bar">
+            <h5>Analysing Your Resume / CV</h5>
+            <p>Please wait..... your resume report is going to generate</p>
+            <Progress percent={progressData} />
+            <h6>Analysing</h6>
+            <Col className={`${styles.stripped}`}>
+                <Image src={IMAGES.Bulb} alt="" />
+                <Col className={`${styles.strippedText}`}>
+                    <p>We are checking your resume for the following:</p>
+                    <p>{currentDescription.title}: <span>{currentDescription.content}</span></p>
                 </Col>
             </Col>
-        </>
+        </Col>
     )
 }
